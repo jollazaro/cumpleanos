@@ -39,7 +39,6 @@
             overflow: hidden;
         }
 
-        /* Simulación de banderines peruanos arriba */
         .flags-banner {
             display: flex;
             justify-content: center;
@@ -153,7 +152,7 @@
         }
 
         .btn-confirm {
-            background-color: #25d366; /* Verde WhatsApp */
+            background-color: #25d366;
             color: #fff;
         }
 
@@ -174,6 +173,31 @@
             transform: translateY(-2px);
         }
 
+        /* Botón de control de música flotante */
+        .music-control {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: var(--peru-red);
+            color: white;
+            border: 2px solid var(--peru-white);
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+            z-index: 1000;
+            transition: transform 0.2s;
+        }
+
+        .music-control:active {
+            transform: scale(0.9);
+        }
+
         .warning-text {
             font-size: 0.85rem;
             color: #888;
@@ -183,7 +207,17 @@
 </head>
 <body>
 
-    <div class="invitation-card">
+    <!-- Elemento de Audio Oculto -->
+    <!-- Podés cambiar "esta-es-mi-tierra.mp3" por el link o ruta de tu archivo de música -->
+    <audio id="bg-music" loop>
+        <source src="esta-es-mi-tierra.mp3" type="audio/mpeg">
+        Tu navegador no soporta audio.
+    </audio>
+
+    <!-- Botón flotante para pausar/reproducir -->
+    <button class="music-control" id="music-btn" onclick="toggleMusic()">🎵</button>
+
+    <div class="invitation-card" onclick="startMusicOnFirstClick()">
         <div class="flags-banner">
             <div class="flag"></div>
             <div class="flag"></div>
@@ -211,7 +245,7 @@
             <h3>Parte Médico / Cronograma 🏆</h3>
             <div class="detail-item">
                 <span class="icon">⚽</span>
-                <div><span class="timeline">16:00 hs</span> Rodamos la pelota. Traer canilleras, diclofenac y ganas de correr (el que pueda).</div>
+                <div><span class="timeline">16:00 hs</span> Rodamos la pelota. Traer canilleras, diclofenac y ganas de correr.</div>
             </div>
             <div class="detail-item">
                 <span class="icon">🍗</span>
@@ -224,12 +258,10 @@
         </div>
 
         <div class="btn-container">
-            <!-- Envía el mensaje directo a tu número -->
             <a href="https://wa.me/541125441020?text=¡Sobradaso! Apúntame para el 9 de julio. Llevo las tabas listas para el fulbito y el estómago vacío para el asado 🇵🇪⚽🍺" target="_blank" class="btn btn-confirm">
                 Confirmar Asistencia 📱
             </a>
             
-            <!-- Link directo a la ubicación provista -->
             <a href="https://maps.app.goo.gl/GbCgT7A9d8LhU3ER6" target="_blank" class="btn btn-location">
                 Ver Mapa del Club 🗺️
             </a>
@@ -238,5 +270,32 @@
         <p class="warning-text">⚠️ Nota: El ingreso al quincho requiere haber dejado todo en la cancha (o haber alentado con una chela en la mano).</p>
     </div>
 
+    <script>
+        const music = document.getElementById('bg-music');
+        const musicBtn = document.getElementById('music-btn');
+        let hasPlayed = false;
+
+        // Intenta reproducir al primer clic que haga el invitado en cualquier parte de la tarjeta
+        function startMusicOnFirstClick() {
+            if (!hasPlayed) {
+                music.play().then(() => {
+                    musicBtn.textContent = '⏸️';
+                    hasPlayed = true;
+                }).catch(err => console.log("Audio bloqueado temporalmente por el navegador. Usa el botón flotante."));
+            }
+        }
+
+        // Control manual desde el botón flotante 🎵
+        function toggleMusic() {
+            hasPlayed = true; // Desactiva el auto-play del primer clic si interactúan directo con el botón
+            if (music.paused) {
+                music.play();
+                musicBtn.textContent = '⏸️';
+            } else {
+                music.pause();
+                musicBtn.textContent = '🎵';
+            }
+        }
+    </script>
 </body>
 </html>
