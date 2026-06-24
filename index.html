@@ -6,88 +6,110 @@
     <title>¡Mis 38 Años! 🇵🇪⚽🍺</title>
     <style>
         :root {
-            --bg-color: #121212;
-            --card-bg: #222222;
-            --peru-red: #d91414;
+            --pitch-green: #1b4d22;
+            --pitch-line: rgba(255, 255, 255, 0.15);
+            --card-glass: rgba(25, 25, 25, 0.85);
+            --peru-red: #e62222;
             --peru-white: #ffffff;
-            --gold-beer: #ffb300;
-            --text-color: #ffffff;
+            --gold-beer: #ffcc00;
+            --text-main: #ffffff;
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-color);
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            color: var(--text-main);
             margin: 0;
             padding: 20px;
             display: flex;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
+            
+            /* Fondo de cancha de fútbol usando CSS puro (Líneas de corte de césped) */
+            background: linear-gradient(90deg, var(--pitch-green) 50%, #143b19 50%);
+            background-size: 80px 100%;
+            position: relative;
+        }
+
+        /* Línea central de la cancha decorativa en el fondo */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            width: 2px;
+            background: var(--pitch-line);
+            z-index: 0;
+            pointer-events: none;
         }
 
         .invitation-card {
-            background-color: var(--card-bg);
-            border-radius: 20px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.7);
-            max-width: 480px;
+            background-color: var(--card-glass);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-radius: 24px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+            max-width: 460px;
             width: 100%;
-            padding: 30px;
+            padding: 35px 25px;
             text-align: center;
-            border: 3px solid var(--peru-red);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            z-index: 1;
             position: relative;
-            overflow: hidden;
         }
 
         .flags-banner {
             display: flex;
             justify-content: center;
-            gap: 10px;
-            margin-bottom: 15px;
+            gap: 8px;
+            margin-bottom: 20px;
         }
         .flag {
-            width: 30px;
+            width: 32px;
             height: 20px;
             background: linear-gradient(to right, var(--peru-red) 33.3%, var(--peru-white) 33.3%, var(--peru-white) 66.6%, var(--peru-red) 66.6%);
-            border-radius: 2px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+            border-radius: 3px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
         }
 
         h1 {
-            font-size: 2.2rem;
-            margin: 5px 0;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .age-container {
-            margin: 15px 0;
-        }
-
-        .age {
-            font-size: 5rem;
-            font-weight: 900;
-            color: var(--peru-red);
-            line-height: 1;
-            text-shadow: 2px 2px 0px var(--peru-white);
+            font-size: 2rem;
             margin: 0;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 800;
+        }
+
+        .age-badge {
+            background: var(--peru-red);
+            color: var(--peru-white);
+            font-size: 4.5rem;
+            font-weight: 900;
+            display: inline-block;
+            padding: 0px 30px;
+            border-radius: 16px;
+            margin: 15px 0;
+            box-shadow: 0 8px 20px rgba(230, 34, 34, 0.4);
+            transform: rotate(-2px);
         }
 
         .funny-quote {
             font-style: italic;
             color: var(--gold-beer);
             font-size: 1.1rem;
-            margin-bottom: 25px;
-            padding: 0 10px;
+            line-height: 1.4;
+            margin-bottom: 30px;
+            font-weight: 600;
         }
 
-        .details {
-            background: rgba(217, 20, 20, 0.1);
-            border-left: 5px solid var(--peru-red);
-            border-radius: 0 10px 10px 0;
+        .details-box {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 16px;
             padding: 20px;
-            margin-bottom: 25px;
+            margin-bottom: 20px;
             text-align: left;
+            border: 1px solid rgba(255, 255, 255, 0.05);
         }
 
         .detail-item {
@@ -104,56 +126,69 @@
         .icon {
             font-size: 1.6rem;
             margin-right: 15px;
-            width: 30px;
+            min-width: 30px;
             text-align: center;
         }
 
-        .agenda {
-            border-top: 1px dashed #444;
-            padding-top: 20px;
-            margin-top: 20px;
-            margin-bottom: 30px;
+        .important-rule {
+            background: rgba(255, 204, 0, 0.15);
+            border: 1px solid var(--gold-beer);
+            border-radius: 16px;
+            padding: 15px;
+            margin-bottom: 25px;
+            font-size: 0.95rem;
+            line-height: 1.4;
+            color: #ffe066;
+            display: flex;
+            align-items: center;
+            gap: 12px;
             text-align: left;
         }
 
         .agenda h3 {
-            color: var(--gold-beer);
+            color: var(--peru-white);
             text-align: center;
             margin-top: 0;
             margin-bottom: 20px;
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             text-transform: uppercase;
+            letter-spacing: 1px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            padding-bottom: 10px;
         }
 
         .timeline {
             font-weight: bold;
             color: var(--peru-red);
-            min-width: 75px;
-            display: inline-block;
+            margin-right: 8px;
         }
 
         .btn-container {
             display: flex;
             flex-direction: column;
-            gap: 15px;
+            gap: 12px;
+            margin-top: 25px;
         }
 
         .btn {
-            display: block;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
             color: white;
             text-decoration: none;
-            padding: 14px 25px;
-            border-radius: 30px;
+            padding: 16px 20px;
+            border-radius: 50px;
             font-weight: bold;
-            font-size: 1.1rem;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+            font-size: 1.05rem;
+            transition: all 0.2s ease-in-out;
             text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
         .btn-confirm {
             background-color: #25d366;
-            color: #fff;
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.3);
         }
 
         .btn-confirm:hover {
@@ -164,57 +199,45 @@
         .btn-location {
             background-color: transparent;
             border: 2px solid var(--peru-white);
-            color: var(--peru-white);
         }
 
         .btn-location:hover {
             background-color: var(--peru-white);
-            color: #000;
+            color: #121212;
             transform: translateY(-2px);
         }
 
-        /* Botón de control de música flotante */
         .music-control {
             position: fixed;
-            bottom: 20px;
-            right: 20px;
+            bottom: 25px;
+            right: 25px;
             background-color: var(--peru-red);
             color: white;
             border: 2px solid var(--peru-white);
             border-radius: 50%;
-            width: 50px;
-            height: 50px;
-            font-size: 1.5rem;
+            width: 55px;
+            height: 55px;
+            font-size: 1.6rem;
             cursor: pointer;
             display: flex;
             justify-content: center;
             align-items: center;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+            box-shadow: 0 6px 16px rgba(0,0,0,0.4);
             z-index: 1000;
             transition: transform 0.2s;
         }
 
-        .music-control:active {
-            transform: scale(0.9);
-        }
-
-        .warning-text {
-            font-size: 0.85rem;
-            color: #888;
-            margin-top: 15px;
+        .music-control:hover {
+            transform: scale(1.05);
         }
     </style>
 </head>
 <body>
 
-    <!-- Elemento de Audio Oculto -->
-    <!-- Podés cambiar "esta-es-mi-tierra.mp3" por el link o ruta de tu archivo de música -->
     <audio id="bg-music" loop>
         <source src="esta-es-mi-tierra.mp3" type="audio/mpeg">
-        Tu navegador no soporta audio.
     </audio>
 
-    <!-- Botón flotante para pausar/reproducir -->
     <button class="music-control" id="music-btn" onclick="toggleMusic()">🎵</button>
 
     <div class="invitation-card" onclick="startMusicOnFirstClick()">
@@ -225,15 +248,14 @@
         </div>
 
         <h1>¡Festejo Mis!</h1>
-        <div class="age-container">
-            <p class="age">38</p>
-        </div>
+        <div class="age-badge">38</div>
+        
         <p class="funny-quote">"El fútbol ya no se juega, se sobrevive... ¡pero las chelas y el asado no se negocian!" 🇵🇪⚽🔥</p>
 
-        <div class="details">
+        <div class="details-box">
             <div class="detail-item">
                 <span class="icon">📅</span>
-                <div><strong>Cuándo:</strong> Jueves 9 de Julio (¡Feriado obligatorio!)</div>
+                <div><strong>Cuándo:</strong> Jueves 9 de Julio (Feriado)</div>
             </div>
             <div class="detail-item">
                 <span class="icon">📍</span>
@@ -242,32 +264,33 @@
         </div>
 
         <div class="agenda">
-            <h3>Parte Médico / Cronograma 🏆</h3>
-            <div class="detail-item">
-                <span class="icon">⚽</span>
-                <div><span class="timeline">16:00 hs</span> Rodamos la pelota. Traer canilleras, diclofenac y ganas de correr.</div>
-            </div>
-            <div class="detail-item">
-                <span class="icon">🍗</span>
-                <div><span class="timeline">Luego...</span> Tercer tiempo oficial: Asadito criminal en el quincho.</div>
-            </div>
-            <div class="detail-item">
-                <span class="icon">🍺</span>
-                <div><span class="timeline">Toda la tarde</span> Cerveza bien helada para hidratar las articulaciones.</div>
+            <h3>Cronograma de la Fecha</h3>
+            <div class="details-box" style="background: transparent; border: none; padding: 0;">
+                <div class="detail-item">
+                    <span class="icon">⚽</span>
+                    <div><span class="timeline">16:00 hs</span> Fulbito táctico (traer canilleras y diclofenac).</div>
+                </div>
+                <div class="detail-item">
+                    <span class="icon">🍗</span>
+                    <div><span class="timeline">Luego...</span> Tercer tiempo con asado criminal en el quincho.</div>
+                </div>
             </div>
         </div>
 
+        <!-- REGLA DE LAS BEBIDAS REQUERIDA -->
+        <div class="important-rule">
+            <span style="font-size: 2rem;">⚠️</span>
+            <div><strong>Dato Clave:</strong> Toda la bebida (cerveza, gaseosas, etc.) se compra directamente en el buffet del club. No se puede ingresar con bebida de afuera, ¡vengan listos para consumir ahí dentro! 🍻</div>
+        </div>
+
         <div class="btn-container">
-            <a href="https://wa.me/541125441020?text=¡Sobradaso! Apúntame para el 9 de julio. Llevo las tabas listas para el fulbito y el estómago vacío para el asado 🇵🇪⚽🍺" target="_blank" class="btn btn-confirm">
+            <a href="https://wa.me/541125441020?text=¡Sobradaso! Apúntame para el 9 de julio. Llevo las tabas listas para el fulbito y el estómago vacío para el asado 🇵🇪⚽" target="_blank" class="btn btn-confirm">
                 Confirmar Asistencia 📱
             </a>
-            
             <a href="https://maps.app.goo.gl/GbCgT7A9d8LhU3ER6" target="_blank" class="btn btn-location">
                 Ver Mapa del Club 🗺️
             </a>
         </div>
-
-        <p class="warning-text">⚠️ Nota: El ingreso al quincho requiere haber dejado todo en la cancha (o haber alentado con una chela en la mano).</p>
     </div>
 
     <script>
@@ -275,19 +298,17 @@
         const musicBtn = document.getElementById('music-btn');
         let hasPlayed = false;
 
-        // Intenta reproducir al primer clic que haga el invitado en cualquier parte de la tarjeta
         function startMusicOnFirstClick() {
             if (!hasPlayed) {
                 music.play().then(() => {
                     musicBtn.textContent = '⏸️';
                     hasPlayed = true;
-                }).catch(err => console.log("Audio bloqueado temporalmente por el navegador. Usa el botón flotante."));
+                }).catch(err => console.log("Audio interactivo bloqueado."));
             }
         }
 
-        // Control manual desde el botón flotante 🎵
         function toggleMusic() {
-            hasPlayed = true; // Desactiva el auto-play del primer clic si interactúan directo con el botón
+            hasPlayed = true;
             if (music.paused) {
                 music.play();
                 musicBtn.textContent = '⏸️';
