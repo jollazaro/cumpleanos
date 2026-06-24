@@ -1,180 +1,157 @@
-<div style="text-align: left; background-color: black; color: green;">
-
-    <span class="loading1"> CONEXIÓN ESTABLECIDA: </span>
-    <span class="loading2"> CARGANDO ARCHIVOS: </span>
-    <span class="loading3">
-        ../sdcard/WhatsApp/Media/Enviadas/Imagenes &#x2611
-    </span>
-    <span class="loading4">
-        ../sdcard/WhatsApp/Media/Enviadas/Videos &#x2611
-    </span>
-    <span class="loading5"> CARGA FINALIZADA EXITOSAMENTE: </span>
-    <span class="loading6"> CONEXIÓN FINALIZADA: </span>
-    <span class="typing">
-        Ya tengo todas las imagenes y videos que enviaste por WhatsApp... &#128520;
-    </span>
-    <span class="typing2"> Ahora si te puedo invitar a mi cumple, 35 no son nada &#128526;  </span>
-    <br>
-    <br>
-    <span class="typing3"> TE ESPERO EL DOMINGO TIPO 14:00 HORAS EN CASA...  &#128526;  </span>
-</div>
-
-<style>
-    body {
-        background-color: black;
-    }
-
-    .typing {
-        display: block;
-        font-family: monospace;
-        white-space: nowrap;
-        width: 69ch;
-        border-right: 4px solid;
-        animation: 0s fadeIn, typing 8s steps(69), blink .0s infinite step-end ;
-        animation-fill-mode: forwards;
-        animation-delay: 6s;
-        overflow: hidden;
-        visibility: hidden;
-    }
-
-    
-    .typing2 {
-        /* animation: 21s fadeIn, parpadeo 1s infinite; */
-        display: block;
-        font-family: monospace;
-        white-space: nowrap;
-        width: 57ch;
-        border-right: 4px solid;
-        animation: 0s fadeIn, typing 8s steps(57), blink .0s infinite step-end alternate;
-        animation-fill-mode: forwards;
-        animation-delay: 16s;
-        overflow: hidden;
-        visibility: hidden;
-    }
-
-    .typing3 {
-        /* animation: 21s fadeIn, parpadeo 1s infinite; */
-        display: block;
-        font-family: monospace;
-        white-space: nowrap;
-        width: 52ch;
-        border-right: 4px solid;
-        animation: 0s fadeIn, typing 5s steps(52), blink .0s infinite step-end alternate;
-        animation-fill-mode: forwards;
-        animation-delay: 30s;
-        overflow: hidden;
-        visibility: hidden;
-    }
-
-    .loading1 {
-        display: block;
-        font-family: monospace;
-        animation: 1s fadeIn;
-        animation-fill-mode: forwards;
-        visibility: hidden;
-    }
-
-    .loading2 {
-        display: block;
-        font-family: monospace;
-        animation: 2s fadeIn;
-        animation-fill-mode: forwards;
-        visibility: hidden;
-    }
-
-    .loading3 {
-        display: block;
-        font-family: monospace;
-        animation: 3s fadeIn;
-        animation-fill-mode: forwards;
-        visibility: hidden;
-    }
-
-    .loading4 {
-        display: block;
-        font-family: monospace;
-        animation: 4s fadeIn;
-        animation-fill-mode: forwards;
-        visibility: hidden;
-    }
-
-    .loading5 {
-        display: block;
-        font-family: monospace;
-        animation: 5s fadeIn;
-        animation-fill-mode: forwards;
-        visibility: hidden;
-    }
-
-    .loading6 {
-        display: block;
-        font-family: monospace;
-        animation: 6s fadeIn, parpadeo 1s infinite;
-        animation-fill-mode: forwards;
-        visibility: hidden;
-    }
-
-    @-moz-keyframes parpadeo {
-        0% {
-            opacity: 1.0;
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¡Mis 38 Años! ⚽🔥</title>
+    <style>
+        :root {
+            --bg-color: #1a1a1a;
+            --card-bg: #2d2d2d;
+            --accent-green: #4caf50;
+            --accent-orange: #ff5722;
+            --text-color: #ffffff;
         }
 
-        50% {
-            opacity: 0.0;
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
         }
 
-        100% {
-            opacity: 1.0;
-        }
-    }
-
-    @-webkit-keyframes parpadeo {
-        0% {
-            opacity: 1.0;
-        }
-
-        50% {
-            opacity: 0.0;
+        .invitation-card {
+            background-color: var(--card-bg);
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+            max-width: 450px;
+            width: 100%;
+            padding: 30px;
+            text-align: center;
+            border: 2px solid var(--accent-green);
         }
 
-        100% {
-            opacity: 1.0;
-        }
-    }
-
-    @keyframes parpadeo {
-        0% {
-            opacity: 1.0;
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 5px;
+            color: var(--text-color);
         }
 
-        50% {
-            opacity: 0.0;
+        .age {
+            font-size: 4rem;
+            font-weight: bold;
+            color: var(--accent-orange);
+            margin: 0;
+            line-height: 1;
         }
 
-        100% {
-            opacity: 1.0;
-        }
-    }
-
-    @keyframes fadeIn {
-        99% {
-            visibility: hidden;
+        .subtitle {
+            font-size: 1.2rem;
+            color: #aaa;
+            margin-bottom: 30px;
         }
 
-        100% {
-            visibility: visible;
+        .details {
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 25px;
+            text-align: left;
         }
-    }
 
-    @keyframes typing {
-        from {
-            width: 0;
+        .detail-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            font-size: 1.1rem;
         }
-    }
 
-    @keyframes blink {
-        50% {
-            border-color: transparent
+        .detail-item:last-child {
+            margin-bottom: 0;
         }
-    }
-</style>
+
+        .icon {
+            font-size: 1.5rem;
+            margin-right: 15px;
+            width: 30px;
+            text-align: center;
+        }
+
+        .agenda {
+            border-top: 1px solid #444;
+            padding-top: 20px;
+            margin-top: 20px;
+        }
+
+        .agenda h3 {
+            color: var(--accent-green);
+            margin-bottom: 15px;
+        }
+
+        .timeline {
+            font-weight: bold;
+            color: var(--accent-orange);
+        }
+
+        .btn-confirm {
+            display: inline-block;
+            background-color: var(--accent-green);
+            color: white;
+            text-decoration: none;
+            padding: 12px 25px;
+            border-radius: 25px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: background 0.3s ease;
+            box-shadow: 0 4px 15px rgba(76, 175, 80, 0.4);
+            margin-top: 15px;
+        }
+
+        .btn-confirm:hover {
+            background-color: #43a047;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="invitation-card">
+        <h1>¡Festejo Mis!</h1>
+        <p class="age">38</p>
+        <p class="subtitle">Se viene una gran tarde de amigos, fútbol y brasas.</p>
+
+        <div class="details">
+            <div class="detail-item">
+                <span class="icon">📅</span>
+                <div><strong>Día:</strong> Jueves 9 de Julio (Feriado)</div>
+            </div>
+            <div class="detail-item">
+                <span class="icon">📍</span>
+                <div><strong>Lugar:</strong> Club Aire Puro</div>
+            </div>
+        </div>
+
+        <div class="agenda">
+            <h3>Cronograma de la Fecha 🏆</h3>
+            <div class="detail-item">
+                <span class="icon">⚽</span>
+                <div><span class="timeline">16:00 hs</span> - Se juega la pelota (puntualidad europea).</div>
+            </div>
+            <div class="detail-item">
+                <span class="icon">🔥</span>
+                <div><span class="timeline">Luego...</span> - Asadito en el quincho para recuperar energías.</div>
+            </div>
+        </div>
+
+        <!-- Podés cambiar el link de abajo por el tuyo de WhatsApp para que te confirmen directo -->
+        <a href="https://wa.me/?text=¡Confirmadísimo para el 9 de Julio! ⚽🔥" target="_blank" class="btn-confirm">
+            Confirmar Asistencia
+        </a>
+    </div>
+
+</body>
+</html>
