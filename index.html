@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>¡Mis 38 Años! ⚽🔥</title>
+    <title>¡Mis 38 Años! 🇵🇪⚽🍺</title>
     <style>
         :root {
-            --bg-color: #1a1a1a;
-            --card-bg: #2d2d2d;
-            --accent-green: #4caf50;
-            --accent-orange: #ff5722;
-            --accent-blue: #2196f3;
+            --bg-color: #121212;
+            --card-bg: #222222;
+            --peru-red: #d91414;
+            --peru-white: #ffffff;
+            --gold-beer: #ffb300;
             --text-color: #ffffff;
         }
 
@@ -28,38 +28,64 @@
 
         .invitation-card {
             background-color: var(--card-bg);
-            border-radius: 15px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
-            max-width: 450px;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.7);
+            max-width: 480px;
             width: 100%;
             padding: 30px;
             text-align: center;
-            border: 2px solid var(--accent-green);
+            border: 3px solid var(--peru-red);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Simulación de banderines peruanos arriba */
+        .flags-banner {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+        .flag {
+            width: 30px;
+            height: 20px;
+            background: linear-gradient(to right, var(--peru-red) 33.3%, var(--peru-white) 33.3%, var(--peru-white) 66.6%, var(--peru-red) 66.6%);
+            border-radius: 2px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
         }
 
         h1 {
-            font-size: 2.5rem;
-            margin-bottom: 5px;
-            color: var(--text-color);
+            font-size: 2.2rem;
+            margin: 5px 0;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .age-container {
+            margin: 15px 0;
         }
 
         .age {
-            font-size: 4rem;
-            font-weight: bold;
-            color: var(--accent-orange);
-            margin: 0;
+            font-size: 5rem;
+            font-weight: 900;
+            color: var(--peru-red);
             line-height: 1;
+            text-shadow: 2px 2px 0px var(--peru-white);
+            margin: 0;
         }
 
-        .subtitle {
-            font-size: 1.2rem;
-            color: #aaa;
-            margin-bottom: 30px;
+        .funny-quote {
+            font-style: italic;
+            color: var(--gold-beer);
+            font-size: 1.1rem;
+            margin-bottom: 25px;
+            padding: 0 10px;
         }
 
         .details {
-            background: rgba(0, 0, 0, 0.2);
-            border-radius: 10px;
+            background: rgba(217, 20, 20, 0.1);
+            border-left: 5px solid var(--peru-red);
+            border-radius: 0 10px 10px 0;
             padding: 20px;
             margin-bottom: 25px;
             text-align: left;
@@ -77,103 +103,139 @@
         }
 
         .icon {
-            font-size: 1.5rem;
+            font-size: 1.6rem;
             margin-right: 15px;
             width: 30px;
             text-align: center;
         }
 
         .agenda {
-            border-top: 1px solid #444;
+            border-top: 1px dashed #444;
             padding-top: 20px;
             margin-top: 20px;
-            margin-bottom: 25px;
+            margin-bottom: 30px;
+            text-align: left;
         }
 
         .agenda h3 {
-            color: var(--accent-green);
-            margin-bottom: 15px;
+            color: var(--gold-beer);
+            text-align: center;
+            margin-top: 0;
+            margin-bottom: 20px;
+            font-size: 1.3rem;
+            text-transform: uppercase;
         }
 
         .timeline {
             font-weight: bold;
-            color: var(--accent-orange);
+            color: var(--peru-red);
+            min-width: 75px;
+            display: inline-block;
         }
 
         .btn-container {
             display: flex;
             flex-direction: column;
-            gap: 12px;
+            gap: 15px;
         }
 
         .btn {
             display: block;
             color: white;
             text-decoration: none;
-            padding: 12px 25px;
-            border-radius: 25px;
+            padding: 14px 25px;
+            border-radius: 30px;
             font-weight: bold;
             font-size: 1.1rem;
-            transition: background 0.3s ease;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+            text-transform: uppercase;
         }
 
         .btn-confirm {
-            background-color: var(--accent-green);
+            background-color: #25d366; /* Verde WhatsApp */
+            color: #fff;
         }
 
         .btn-confirm:hover {
-            background-color: #43a047;
+            background-color: #20ba5a;
+            transform: translateY(-2px);
         }
 
         .btn-location {
-            background-color: var(--accent-blue);
+            background-color: transparent;
+            border: 2px solid var(--peru-white);
+            color: var(--peru-white);
         }
 
         .btn-location:hover {
-            background-color: #1e88e5;
+            background-color: var(--peru-white);
+            color: #000;
+            transform: translateY(-2px);
+        }
+
+        .warning-text {
+            font-size: 0.85rem;
+            color: #888;
+            margin-top: 15px;
         }
     </style>
 </head>
 <body>
 
     <div class="invitation-card">
+        <div class="flags-banner">
+            <div class="flag"></div>
+            <div class="flag"></div>
+            <div class="flag"></div>
+        </div>
+
         <h1>¡Festejo Mis!</h1>
-        <p class="age">38</p>
-        <p class="subtitle">Se viene una gran tarde de amigos, fútbol y brasas.</p>
+        <div class="age-container">
+            <p class="age">38</p>
+        </div>
+        <p class="funny-quote">"El fútbol ya no se juega, se sobrevive... ¡pero las chelas y el asado no se negocian!" 🇵🇪⚽🔥</p>
 
         <div class="details">
             <div class="detail-item">
                 <span class="icon">📅</span>
-                <div><strong>Día:</strong> Jueves 9 de Julio (Feriado)</div>
+                <div><strong>Cuándo:</strong> Jueves 9 de Julio (¡Feriado obligatorio!)</div>
             </div>
             <div class="detail-item">
                 <span class="icon">📍</span>
-                <div><strong>Lugar:</strong> Club Aire Puro<br><small style="color: #aaa;">Zárate 6121, Villa Ballester</small></div>
+                <div><strong>Dónde:</strong> Club Aire Puro</div>
             </div>
         </div>
 
         <div class="agenda">
-            <h3>Cronograma de la Fecha 🏆</h3>
+            <h3>Parte Médico / Cronograma 🏆</h3>
             <div class="detail-item">
                 <span class="icon">⚽</span>
-                <div><span class="timeline">16:00 hs</span> - Se juega la pelota (puntualidad europea).</div>
+                <div><span class="timeline">16:00 hs</span> Rodamos la pelota. Traer canilleras, diclofenac y ganas de correr (el que pueda).</div>
             </div>
             <div class="detail-item">
-                <span class="icon">🔥</span>
-                <div><span class="timeline">Luego...</span> - Asadito en el quincho para recuperar energías.</div>
+                <span class="icon">🍗</span>
+                <div><span class="timeline">Luego...</span> Tercer tiempo oficial: Asadito criminal en el quincho.</div>
+            </div>
+            <div class="detail-item">
+                <span class="icon">🍺</span>
+                <div><span class="timeline">Toda la tarde</span> Cerveza bien helada para hidratar las articulaciones.</div>
             </div>
         </div>
 
         <div class="btn-container">
-            <a href="https://wa.me/541125441020?text=¡Confirmadísimo para el 9 de Julio! ⚽🔥 Voy a jugar y a comer ese asado." target="_blank" class="btn btn-confirm">
-                Confirmar Asistencia
+            <!-- Envía el mensaje directo a tu número -->
+            <a href="https://wa.me/541125441020?text=¡Sobradaso! Apúntame para el 9 de julio. Llevo las tabas listas para el fulbito y el estómago vacío para el asado 🇵🇪⚽🍺" target="_blank" class="btn btn-confirm">
+                Confirmar Asistencia 📱
             </a>
             
+            <!-- Link directo a la ubicación provista -->
             <a href="https://maps.app.goo.gl/GbCgT7A9d8LhU3ER6" target="_blank" class="btn btn-location">
-                Ver Ubicación en Maps 🗺️
+                Ver Mapa del Club 🗺️
             </a>
         </div>
+
+        <p class="warning-text">⚠️ Nota: El ingreso al quincho requiere haber dejado todo en la cancha (o haber alentado con una chela en la mano).</p>
     </div>
 
 </body>
